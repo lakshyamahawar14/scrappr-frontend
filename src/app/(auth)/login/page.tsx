@@ -22,7 +22,7 @@ const LogIn = () => {
   return (
     <main>
       <Header />
-      <div className="relative flex flex-col justify-center items-center h-full min-h-[100vh] md:h-[100vh] lg:h-[100vh] w-full p-6 pt-[75px] text-slate-700">
+      <div className="relative flex flex-col justify-center items-center h-full min-h-[100vh] md:h-[100vh] lg:h-[100vh] w-full p-6 pt-[75px] text-slate-700 dark:bg-slate-900">
         <AuthForm
           fields={loginFields}
           buttonText="Log In"
