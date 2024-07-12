@@ -1,5 +1,3 @@
-// "use client";
-
 import { createStore } from "zustand/vanilla";
 
 export type DarkModeState = {

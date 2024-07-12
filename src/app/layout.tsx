@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 import { DarkModeStoreProvider } from "@/providers/dark-mode-store-provider";
+import { MobileModeStoreProvider } from "@/providers/mobile-mode-store-provider";
 import Header from "@/components/header";
+import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
   title: "Scrappr | Get Whatever You Want From Web",
@@ -16,9 +18,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="">
+    <html lang="en">
       <body>
-        <DarkModeStoreProvider>{children}</DarkModeStoreProvider>
+        <DarkModeStoreProvider>
+          <MobileModeStoreProvider>
+            <Header />
+            {children}
+            <Footer />
+          </MobileModeStoreProvider>
+        </DarkModeStoreProvider>
       </body>
     </html>
   );

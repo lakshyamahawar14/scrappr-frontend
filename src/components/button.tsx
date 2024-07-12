@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 
 interface ButtonProps {
@@ -16,8 +18,8 @@ const Button: React.FC<ButtonProps> = ({
       type="button"
       className={`font-bold py-2 px-4 rounded text-[0.8rem] ${
         buttonTheme === "dark"
-          ? "bg-slate-700 text-white hover:text-slate-200"
-          : "bg-white text-slate-900 hover:bg-slate-200"
+          ? "bg-slate-700 text-white hover:bg-slate-800"
+          : "bg-white text-black hover:bg-slate-200"
       }`}
       onClick={onClick}
     >

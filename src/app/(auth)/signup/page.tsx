@@ -1,7 +1,7 @@
 "use client";
 
 import AuthForm from "@/components/authform";
-import Header from "@/components/header";
+import Layout from "@/components/layout";
 
 const signupFields = [
   {
@@ -27,12 +27,11 @@ const signupFields = [
 const SignUp = () => {
   return (
     <main>
-      <Header />
-      <div className="relative flex flex-col justify-center items-center h-full min-h-[100vh] md:h-[100vh] lg:h-[100vh] w-full p-6 pt-[75px] text-slate-700 dark:bg-slate-900">
+      <div className="relative flex flex-col justify-center items-center h-full min-h-[100vh] md:h-[100vh] lg:h-[100vh] w-full p-6 pt-[75px] text-slate-700 dark:bg-black">
         <AuthForm
           fields={signupFields}
           buttonText="Sign Up"
-          onSubmit={() => {}}
+          onClick={() => {}}
           extraLinks={[
             { text: "Already have an account? Log In", href: "/login" },
           ]}

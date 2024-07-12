@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Button from "./button";
 import Link from "next/link";
@@ -12,28 +14,28 @@ interface Field {
 interface AuthFormProps {
   fields: Field[];
   buttonText: string;
-  onSubmit: () => void;
+  onClick: () => void;
   extraLinks?: { text: string; href: string }[];
 }
 
 const AuthForm: React.FC<AuthFormProps> = ({
   fields,
   buttonText,
-  onSubmit,
+  onClick,
   extraLinks,
 }) => {
   return (
     <div className="flex justify-center items-center w-full">
       <div className="p-8 rounded-lg w-full max-w-sm border-[2px] border-slate-200 dark:border-slate-800">
-        <h1 className="text-2xl font-bold mb-6 text-center text-slate-900 dark:text-slate-200">
+        <h1 className="text-2xl font-bold mb-6 text-center text-black dark:text-slate-200">
           {buttonText}
         </h1>
-        <form className="space-y-6" onSubmit={onSubmit}>
+        <form className="space-y-6">
           {fields.map((field, index) => (
             <div key={index}>
               <label
                 htmlFor={field.name}
-                className="flex text-sm font-medium dark:text-slate-200 text-slate-900 items-center py-1"
+                className="flex text-sm font-medium dark:text-slate-200 text-black items-center py-1"
               >
                 {field.label}
                 <span className="text-red-500">*</span>
@@ -63,7 +65,7 @@ const AuthForm: React.FC<AuthFormProps> = ({
           <Button
             buttonText={buttonText}
             buttonTheme="dark"
-            onClick={onSubmit}
+            onClick={onClick}
           />
         </form>
       </div>
