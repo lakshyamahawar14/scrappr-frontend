@@ -11,7 +11,7 @@ import {
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { useDarkModeStore } from "@/providers/dark-mode-store-provider";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useMobileModeStore } from "@/providers/mobile-mode-store-provider";
 import Redirector from "./redirector";
 import Loader from "./loader";
@@ -62,7 +62,10 @@ const Header = () => {
 
   return (
     <header className="fixed z-[20] top-0 flex justify-between items-center h-[75px] px-12 md:px-16 lg:px-[5.5rem] w-full bg-transparent backdrop-blur-lg">
-      <Loader />
+      <Suspense fallback={<>Loading...</>}>
+        <Loader />
+      </Suspense>
+
       <div className="z-[25]">
         <Logo logoTheme="dark" />
       </div>

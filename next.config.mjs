@@ -33,8 +33,7 @@ const nextConfig = {
         hostname: "**"
       }
     ],
-  },
-  missingSuspenseWithCSRBailout: false,
+  }
 };
 
 export default nextConfig;
