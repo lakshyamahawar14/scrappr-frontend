@@ -1,7 +1,5 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import Button from "./button";
 import Logo from "./logo";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -15,13 +13,15 @@ import {
 import { useDarkModeStore } from "@/providers/dark-mode-store-provider";
 import { useEffect, useState } from "react";
 import { useMobileModeStore } from "@/providers/mobile-mode-store-provider";
+import Redirector from "./redirector";
+import Loader from "./loader";
 
 const Header = () => {
-  const router = useRouter();
   const { isDarkMode, toggleDarkMode } = useDarkModeStore((state) => state);
-  const [darkMode, setDarkMode] = useState(true);
-  const { isMobileMode, isMobileMenu, toggleMobileMode, toggleMobileMenu } =
-    useMobileModeStore((state) => state);
+  const [darkMode, setDarkMode] = useState(isDarkMode);
+  const { isMobileMode, isMobileMenu, toggleMobileMenu } = useMobileModeStore(
+    (state) => state
+  );
   const [mobileMenu, setMobileMenu] = useState(isMobileMenu);
 
   useEffect(() => {
@@ -32,6 +32,7 @@ const Header = () => {
       element.classList.add("dark");
     }
     setDarkMode(isDarkMode);
+    element.style.opacity = "1";
   }, [isDarkMode]);
 
   const changeTheme = () => {
@@ -54,7 +55,8 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed z-[20] top-0 flex justify-between items-center h-16 px-6 md:px-10 lg:px-16 w-full bg-transparent backdrop-blur-lg">
+    <header className="fixed z-[20] top-0 flex justify-between items-center h-[75px] px-12 md:px-16 lg:px-[5.5rem] w-full bg-transparent backdrop-blur-lg">
+      <Loader />
       <div className="z-[25]">
         <Logo logoTheme="dark" />
       </div>
@@ -80,19 +82,15 @@ const Header = () => {
           </nav>
         </div>
         <div className="flex items-center gap-4">
-          <Button
-            buttonText="Log In"
-            buttonTheme="light"
-            onClick={() => {
-              router.push("/login");
-            }}
+          <Redirector
+            redirectorText={"Log In"}
+            redirectorTheme={"light"}
+            redirectorPath={"loginPage"}
           />
-          <Button
-            buttonText="Sign Up"
-            buttonTheme="dark"
-            onClick={() => {
-              router.push("/signup");
-            }}
+          <Redirector
+            redirectorText={"Sign Up"}
+            redirectorTheme={"dark"}
+            redirectorPath={"signupPage"}
           />
         </div>
         <div className="flex items-center gap-4">

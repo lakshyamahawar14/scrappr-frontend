@@ -23,7 +23,16 @@ const nextConfig = {
     ];
   },
   images: {
-    domains: ['lakshya-mahawar.vercel.app', 'cdn.sstatic.net', 'www.gravatar.com', 'cdna.artstation.com', 'cdnb.artstation.com'],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**",
+      },
+      {
+        protocol: "http",
+        hostname: "**"
+      }
+    ],
   },
 };
 

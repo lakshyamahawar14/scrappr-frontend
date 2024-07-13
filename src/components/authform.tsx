@@ -3,6 +3,8 @@
 import React from "react";
 import Button from "./button";
 import Link from "next/link";
+import Heading from "./heading";
+import Input from "./input";
 
 interface Field {
   type: string;
@@ -26,11 +28,13 @@ const AuthForm: React.FC<AuthFormProps> = ({
 }) => {
   return (
     <div className="flex justify-center items-center w-full">
-      <div className="p-8 rounded-lg w-full max-w-sm border-[2px] border-slate-200 dark:border-slate-800">
-        <h1 className="text-2xl font-bold mb-6 text-center text-black dark:text-slate-200">
-          {buttonText}
-        </h1>
-        <form className="space-y-6">
+      <div className="flex flex-col justify-center items-center p-8 rounded-lg w-full max-w-sm  shadow-2xl dark:border-[2px] border-slate-200 dark:border-slate-800">
+        <Heading
+          headingText={buttonText}
+          headingSize={"small"}
+          textCenter={true}
+        />
+        <form className="space-y-6 w-full">
           {fields.map((field, index) => (
             <div key={index}>
               <label
@@ -40,23 +44,23 @@ const AuthForm: React.FC<AuthFormProps> = ({
                 {field.label}
                 <span className="text-red-500">*</span>
               </label>
-              <input
-                type={field.type}
-                id={field.name}
-                name={field.name}
+              <Input
+                inputType={field.type}
+                inputId={field.name}
+                inputName={field.name}
                 placeholder={field.placeholder}
-                className="mt-1 p-2 block text-[0.9rem] w-full bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-800 rounded-md shadow-sm focus:ring-slate-500 dark:focus:rign-slate-600 focus:border-slate-500 dark:focus:border-slate-600 text-slate-800 dark:text-slate-300 outline-none"
-                required
+                isRequired={true}
+                onChange={() => {}}
               />
             </div>
           ))}
-          <div className="flex flex-col md:flex-row lg:flex-row justify-between items-start">
+          <div className="flex flex-col md:flex-row lg:flex-row justify-between items-start gap-8">
             {extraLinks &&
               extraLinks.map((link, index) => (
                 <Link
                   key={index}
                   href={link.href}
-                  className="text-sm text-blue-500 dark:text-sky-400 hover:underline my-1"
+                  className="text-[0.8rem] text-blue-500 dark:text-sky-400 hover:underline"
                 >
                   {link.text}
                 </Link>
@@ -64,7 +68,8 @@ const AuthForm: React.FC<AuthFormProps> = ({
           </div>
           <Button
             buttonText={buttonText}
-            buttonTheme="dark"
+            buttonTheme={"dark"}
+            isDisabled={false}
             onClick={onClick}
           />
         </form>

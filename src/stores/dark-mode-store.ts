@@ -22,15 +22,16 @@ const setLocalStorage = (key: string, value: boolean) => {
 };
 
 export const initDarkModeStore = (): DarkModeState => {
-  const isDarkModeFromStorage = getFromLocalStorage("isDarkMode");
-  const isDarkMode = isDarkModeFromStorage
-    ? JSON.parse(isDarkModeFromStorage)
-    : false;
+  // const isDarkModeFromStorage = getFromLocalStorage("isDarkMode");
+  // const isDarkMode = isDarkModeFromStorage
+  //   ? JSON.parse(isDarkModeFromStorage)
+  //   : false;
+  const isDarkMode = true;
   return { isDarkMode };
 };
 
 export const defaultInitState: DarkModeState = {
-  isDarkMode: false,
+  isDarkMode: true,
 };
 
 export const createDarkModeStore = (

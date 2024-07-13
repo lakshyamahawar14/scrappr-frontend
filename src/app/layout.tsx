@@ -18,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark opacity-0">
       <body>
         <DarkModeStoreProvider>
           <MobileModeStoreProvider>

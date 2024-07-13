@@ -1,40 +1,53 @@
-// src/components/card.tsx
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
-import Button from "./button";
+import Redirector from "./redirector";
+import Heading from "./heading";
+import Paragraph from "./paragraph";
 
 interface CardProps {
   icon: IconDefinition;
   title: string;
   description: string;
-  buttonText: string;
-  buttonFunction: () => void;
+  redirectorStatus: boolean;
+  redirectorText: string;
+  redirectorPath: string;
+  cardSize: string;
 }
 
 const Card: React.FC<CardProps> = ({
   icon,
   title,
   description,
-  buttonText,
-  buttonFunction,
+  redirectorStatus,
+  redirectorText,
+  redirectorPath,
+  cardSize,
 }) => {
   return (
     <div
-      className="w-full lg:w-[calc(50%-1rem)] h-full md:min-h-[350px] lg:min-h-[350px] flex p-4 shadow-md dark:shadow-none dark:border-[2px] dark:border-slate-900 rounded-lg flex-wrap"
-      style={{ maxWidth: "350px" }}
+      className="w-full lg:w-[calc(50%)] h-full flex flex-col p-4 shadow-xl dark:shadow-none dark:border-[2px] dark:border-slate-900 rounded-lg"
+      style={{
+        maxWidth: cardSize === "large" ? "350px" : "350px",
+        minHeight: cardSize === "large" ? "400px" : "350px",
+      }}
     >
-      <div className="flex justify-start items-center p-4 dark:text-slate-200">
-        <FontAwesomeIcon icon={icon} className="h-[35px] lg:h-[45px]" />
-        <p className="font-bold ml-2 lg:ml-4">{title}</p>
-      </div>
-      <div className="flex flex-col items-start p-4 gap-4 dark:text-slate-400">
-        <p className="text-[0.9rem] leading-7">{description}</p>
-        <Button
-          buttonText={buttonText}
-          buttonTheme="dark"
-          onClick={buttonFunction}
+      <div className="flex justify-start items-center p-4 dark:text-slate-200 gap-2 w-full">
+        <FontAwesomeIcon
+          icon={icon}
+          className="h-[20px] md:h-[25px] lg:h-[30px]"
         />
+        <Heading headingText={title} headingSize={"small"} textCenter={false} />
+      </div>
+      <div className="flex flex-col items-start p-4 gap-4 dark:text-slate-400 flex-grow">
+        <Paragraph paragraphText={description} paragraphSize="small" />
+        {redirectorStatus && (
+          <Redirector
+            redirectorText={redirectorText}
+            redirectorTheme={"dark"}
+            redirectorPath={redirectorPath}
+          />
+        )}
       </div>
     </div>
   );

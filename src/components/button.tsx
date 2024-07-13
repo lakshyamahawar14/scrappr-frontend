@@ -5,12 +5,14 @@ import React from "react";
 interface ButtonProps {
   buttonText: string;
   buttonTheme: string;
+  isDisabled: boolean;
   onClick: () => void;
 }
 
 const Button: React.FC<ButtonProps> = ({
   buttonText,
   buttonTheme,
+  isDisabled,
   onClick,
 }) => {
   return (
@@ -22,6 +24,7 @@ const Button: React.FC<ButtonProps> = ({
           : "bg-white text-black hover:bg-slate-200"
       }`}
       onClick={onClick}
+      disabled={isDisabled}
     >
       {buttonText}
     </button>

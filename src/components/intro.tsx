@@ -3,10 +3,12 @@
 import Image from "next/image";
 import { useDarkModeStore } from "@/providers/dark-mode-store-provider";
 import { useEffect, useState } from "react";
+import Heading from "./heading";
+import Paragraph from "./paragraph";
 
 const Intro = () => {
   const { isDarkMode } = useDarkModeStore((state) => state);
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(isDarkMode);
 
   useEffect(() => {
     setDarkMode(isDarkMode);
@@ -17,31 +19,38 @@ const Intro = () => {
       id="intro"
       className="relative flex flex-col justify-center items-center min-h-[100vh] w-full p-6 pt-[75px] text-slate-700 dark:bg-black"
     >
-      <div className="w-full p-6 md:px-10 lg:px-16">
-        <div className="flex flex-col lg:flex-row justify-center items-center my-4 gap-6 w-full">
+      <div className="w-full p-6 md:px-10 lg:px-16 flex flex-col lg:flex-row justify-center items-center gap-6">
+        <div className="w-full lg:w-1/2">
           <div className="flex flex-col w-full">
-            <h1 className="font-extrabold text-[2rem] md:text-[2.5rem] lg:text-[3rem] dark:text-slate-200 my-6 w-full">
-              Scrape Anything You Want From Internet!
-            </h1>
-            <p className="text-justify text-[0.9rem] md:text-[1.1rem] lg:text-[1.2rem] leading-7 text-slate-700 dark:text-slate-400 w-full">
-              With Scrappr, you can extract Images, Videos, PDFs, and much more
-              really fast. Easily capture content from any source. Effortlessly
-              download and organize your data. Scrappr: Your ultimate tool for
-              rapid data extraction and management.
-            </p>
-          </div>
-          <div className="flex justify-center items-start w-full min-w-[400px]">
-            <Image
-              src={
-                darkMode
-                  ? "/images/image-scrappr-dark.png"
-                  : "/images/image-scrappr-light.png"
-              }
-              width={2000}
-              height={2000}
-              alt={`image scrappr ${darkMode ? "dark" : "light"}`}
-              className="rounded-md w-full"
+            <Heading
+              headingText={"Scrape Anything You Want From Internet!"}
+              headingSize={"large"}
+              textCenter={false}
             />
+            <Paragraph
+              paragraphText={
+                "With Scrappr, you can extract Images, Videos, PDFs, and much more really fast. Easily capture content from any source. Effortlessly download and organize your data. Scrappr: Your ultimate tool for rapid data extraction and management."
+              }
+              paragraphSize={"large"}
+            />
+          </div>
+        </div>
+        <div className="w-full lg:w-1/2 flex justify-center items-start">
+          <div className="w-full md:max-w-md lg:max-w-lg xl:max-w-xl">
+            <div className="relative rounded-md overflow-hidden shadow-2xl dark:shadow-none dark:border-[1px] dark:border-slate-800">
+              <Image
+                src={
+                  darkMode
+                    ? "/images/image-scrappr-dark.png"
+                    : "/images/image-scrappr-light.png"
+                }
+                width={800}
+                height={800}
+                priority={true}
+                alt={`image scrappr ${darkMode ? "dark" : "light"}`}
+                className={`rounded-xl`}
+              />
+            </div>
           </div>
         </div>
       </div>

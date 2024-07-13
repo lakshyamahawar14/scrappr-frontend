@@ -3,10 +3,7 @@ import Logo from "./logo";
 
 const Footer = () => {
   return (
-    <footer className="flex flex-col justify-between items-center h-full p-6 px-6 md:px-10 lg:px-16 w-full dark:bg-black">
-      <span className="w-full my-4 text-center">
-        <Logo logoTheme="light" />
-      </span>
+    <footer className="flex flex-col justify-between items-center h-full px-12 md:px-16 lg:px-[5.5rem] w-full dark:bg-black">
       <div className="flex flex-col">
         <div className="flex flex-col justify-center items-center">
           <span className="w-full my-6 text-center font-bold text-black dark:text-slate-200">
