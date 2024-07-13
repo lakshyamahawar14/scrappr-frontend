@@ -26,7 +26,7 @@ const Card: React.FC<CardProps> = ({
 }) => {
   return (
     <div
-      className="w-full lg:w-[calc(50%)] h-full flex flex-col p-4 shadow-xl dark:shadow-none dark:border-[2px] dark:border-slate-900 rounded-lg"
+      className="w-full lg:w-[calc(50%)] h-full flex flex-col p-4 customBorder"
       style={{
         maxWidth: cardSize === "large" ? "350px" : "350px",
         minHeight: cardSize === "large" ? "400px" : "350px",

@@ -57,7 +57,7 @@ const Loader: React.FC = () => {
 
   return (
     <div
-      className="h-1 fixed top-0 left-0 right-0 bg-sky-400"
+      className="h-2 fixed top-0 left-0 right-0 bg-sky-800 dark:bg-sky-400"
       id="loader-bar"
       style={{ width: "0%", transition: "width 0.3s ease-out" }}
     />

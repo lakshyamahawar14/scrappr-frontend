@@ -28,7 +28,7 @@ const AuthForm: React.FC<AuthFormProps> = ({
 }) => {
   return (
     <div className="flex justify-center items-center w-full">
-      <div className="flex flex-col justify-center items-center p-8 rounded-lg w-full max-w-sm  shadow-2xl dark:border-[2px] border-slate-200 dark:border-slate-800">
+      <div className="flex flex-col justify-center items-center p-8 w-full max-w-sm customBorder">
         <Heading
           headingText={buttonText}
           headingSize={"small"}

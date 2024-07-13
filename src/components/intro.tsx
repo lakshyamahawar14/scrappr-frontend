@@ -17,7 +17,7 @@ const Intro = () => {
   return (
     <div
       id="intro"
-      className="relative flex flex-col justify-center items-center min-h-[100vh] w-full p-6 pt-[75px] text-slate-700 dark:bg-black"
+      className="relative flex flex-col justify-center items-center min-h-[100vh] w-full p-6 pt-[75px] text-slate-700 gradientBg"
     >
       <div className="w-full p-6 md:px-10 lg:px-16 flex flex-col lg:flex-row justify-center items-center gap-6">
         <div className="w-full lg:w-1/2">
@@ -37,7 +37,7 @@ const Intro = () => {
         </div>
         <div className="w-full lg:w-1/2 flex justify-center items-start">
           <div className="w-full md:max-w-md lg:max-w-lg xl:max-w-xl">
-            <div className="relative rounded-md overflow-hidden shadow-2xl dark:shadow-none dark:border-[1px] dark:border-slate-800">
+            <div className="relative customBorder">
               <Image
                 src={
                   darkMode
@@ -48,7 +48,6 @@ const Intro = () => {
                 height={800}
                 priority={true}
                 alt={`image scrappr ${darkMode ? "dark" : "light"}`}
-                className={`rounded-xl`}
               />
             </div>
           </div>

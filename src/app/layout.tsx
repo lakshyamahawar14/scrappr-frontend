@@ -19,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="overflow-hidden">
+    <html lang="en" className="dark overflow-hidden">
       <body>
         <MainLoader />
         <DarkModeStoreProvider>
