@@ -32,7 +32,6 @@ const Header = () => {
       element.classList.add("dark");
     }
     setDarkMode(isDarkMode);
-    element.style.opacity = "1";
   }, [isDarkMode]);
 
   const changeTheme = () => {
@@ -49,6 +48,13 @@ const Header = () => {
     }
     setMobileMenu(isMobileMenu);
   }, [isMobileMenu, isMobileMode]);
+
+  useEffect(() => {
+    const element = document.getElementsByTagName("html")[0];
+    element.style.overflow = "auto";
+    const mainLoader = document.getElementById("mainLoader");
+    mainLoader?.style.setProperty("display", "none");
+  });
 
   const handleMobileMenuChange = () => {
     if (isMobileMode) toggleMobileMenu();

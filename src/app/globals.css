@@ -2,10 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
+.dark {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   user-select: none;
   scroll-behavior: smooth;
+  font-display: block;
+}
+
+.dark::-webkit-scrollbar {
+  width: 20px;
+}
+
+.dark::-webkit-scrollbar-track {
+  background: black;
+}
+
+.dark::-webkit-scrollbar-thumb {
+  background-color: black;
+  border-radius: 20px;
+}
+
+.dark {
+  scrollbar-width: 20px;
+  scrollbar-color: rgb(148 163 184) black;
 }

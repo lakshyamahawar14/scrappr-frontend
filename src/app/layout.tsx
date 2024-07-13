@@ -5,6 +5,7 @@ import { DarkModeStoreProvider } from "@/providers/dark-mode-store-provider";
 import { MobileModeStoreProvider } from "@/providers/mobile-mode-store-provider";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import MainLoader from "@/components/mainloader";
 
 export const metadata: Metadata = {
   title: "Scrappr | Get Whatever You Want From Web",
@@ -18,8 +19,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark opacity-0">
+    <html lang="en" className="overflow-hidden">
       <body>
+        <MainLoader />
         <DarkModeStoreProvider>
           <MobileModeStoreProvider>
             <Header />
