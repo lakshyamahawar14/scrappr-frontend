@@ -34,6 +34,7 @@ const nextConfig = {
       }
     ],
   },
+  missingSuspenseWithCSRBailout: false,
 };
 
 export default nextConfig;
