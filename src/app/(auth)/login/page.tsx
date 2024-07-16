@@ -1,7 +1,6 @@
 "use client";
 
 import AuthForm from "@/components/authform";
-import Layout from "@/components/layout";
 
 const loginFields = [
   {

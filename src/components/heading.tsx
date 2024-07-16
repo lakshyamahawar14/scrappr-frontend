@@ -1,25 +1,23 @@
-import React from "react";
+import React, { ReactNode } from "react";
 
 interface HeadingProps {
-  headingText: string;
+  headingText: string | ReactNode;
   headingSize: string;
-  textCenter: boolean;
+  className?: string;
 }
 
-const Heading: React.FC<HeadingProps> = ({
-  headingText,
-  headingSize,
-  textCenter,
-}) => {
+const Heading: React.FC<HeadingProps> = (props) => {
   return (
     <h1
-      className={`w-full text-center text-slate-900 dark:text-slate-200 py-3 ${
-        headingSize === "large"
+      className={`dark:text-slate-200 text-slate-800 py-1 ${
+        props.headingSize === "large"
           ? "text-[2rem] md:text-[2.5rem] lg:text-[3rem] font-extrabold"
-          : "text-[1rem] md:text-[1.1rem] lg:text-[1.2rem] font-bold"
-      } ${textCenter ? "text-center" : "text-start"}`}
+          : props.headingSize === "small"
+          ? "text-[1.1rem] md:text-[1.2rem] lg:text-[1.3rem] font-bold"
+          : "text-[0.9rem] md:text-[1rem] lg:text-[1.2rem] font-bold"
+      } ${props.className} break-words`}
     >
-      {headingText}
+      {props.headingText}
     </h1>
   );
 };

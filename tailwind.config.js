@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
-const defaultTheme = require('tailwindcss/defaultTheme')
+
+const { fontFamily } = require('tailwindcss/defaultTheme')
 
 module.exports = {
   darkMode: 'selector',
@@ -9,12 +10,18 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['"Inter"', ...defaultTheme.fontFamily.sans],
+        sans: [
+          '"Roboto"',
+          '"Segoe UI"',
+          'sans-serif',
+          ...fontFamily.sans,
+        ],
       },
-      screens: {
-      'md': '640px',
-      'lg': '1040px',
-    },
+      screens : {
+        'sm' : '450px',
+        'md': '650px',
+        'lg': '1024px',
+      }
     },
   },
   plugins: [],

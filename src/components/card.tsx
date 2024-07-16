@@ -37,7 +37,7 @@ const Card: React.FC<CardProps> = ({
           icon={icon}
           className="h-[20px] md:h-[25px] lg:h-[30px]"
         />
-        <Heading headingText={title} headingSize={"small"} textCenter={false} />
+        <Heading headingText={title} headingSize={"small"} />
       </div>
       <div className="flex flex-col items-start p-4 gap-4 dark:text-slate-400 flex-grow">
         <Paragraph paragraphText={description} paragraphSize="small" />

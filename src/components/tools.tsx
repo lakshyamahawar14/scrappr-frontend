@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import {
   faImage,
@@ -8,7 +6,6 @@ import {
   faFileAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import Card from "./card";
-import { useRouter } from "next/navigation";
 import Heading from "./heading";
 
 const tools = [
@@ -43,16 +40,15 @@ const tools = [
 ];
 
 const Tools = () => {
-  const router = useRouter();
   return (
     <div
       id="tools"
-      className="relative flex flex-col justify-center items-center h-full min-h-[100vh] w-full p-6 pt-[75px] text-slate-700 dark:bg-black"
+      className="relative flex flex-col justify-center items-center h-full min-h-[100vh] w-full pt-[75px] text-slate-700 dark:bg-black"
     >
       <Heading
         headingText={"Our Tools"}
         headingSize={"large"}
-        textCenter={true}
+        className="text-center"
       />
       <div className="w-full p-6 md:px-10 lg:px-16 flex flex-wrap justify-center items-center gap-8">
         {tools.map((tool, index) => (

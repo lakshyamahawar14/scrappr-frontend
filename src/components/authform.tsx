@@ -32,7 +32,7 @@ const AuthForm: React.FC<AuthFormProps> = ({
         <Heading
           headingText={buttonText}
           headingSize={"small"}
-          textCenter={true}
+          className="text-center"
         />
         <form className="space-y-6 w-full">
           {fields.map((field, index) => (

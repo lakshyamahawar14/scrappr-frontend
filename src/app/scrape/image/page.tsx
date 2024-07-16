@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Button from "@/components/button";
 import Input from "@/components/input";
 import Heading from "@/components/heading";
+import Paragraph from "@/components/paragraph";
 
 export default function ScrapeImage() {
   const [url, setUrl] = useState("");
@@ -73,12 +74,12 @@ export default function ScrapeImage() {
 
   return (
     <main>
-      <div className="relative flex flex-col justify-start items-center h-full min-h-[100vh] w-full p-6 pt-[75px] text-slate-700 dark:bg-black">
+      <div className="relative flex flex-col justify-start items-center h-full min-h-[100vh] w-full pt-[75px] text-slate-700 dark:bg-black">
         <div className="w-full p-6 md:px-10 lg:px-16 flex flex-col justify-center items-center gap-6">
           <Heading
             headingText={"Image Scrappr"}
             headingSize={"large"}
-            textCenter={true}
+            className="text-center"
           />
           <div className="flex w-full flex-col justify-center items-center gap-6">
             <div className="w-full flex justify-center items-center gap-2">
@@ -147,9 +148,10 @@ export default function ScrapeImage() {
                       ))}
                     </div>
                   ) : (
-                    <p className="my-4 text-center text-black dark:text-slate-400">
-                      No images found
-                    </p>
+                    <Paragraph
+                      paragraphText={"No images found"}
+                      paragraphSize="small"
+                    />
                   )}
                 </div>
               </>
